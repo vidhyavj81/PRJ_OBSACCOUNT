@@ -16,9 +16,11 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
+
 public class CategoriesPage {
 	POMLogin objPOMLogin;
 
+	
 	POMCategories objPOMCategories;
 	SoftAssert softassert=new SoftAssert();
 	static String url="https://qalegend.com/billing/public/login";

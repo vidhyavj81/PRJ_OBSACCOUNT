@@ -14,7 +14,9 @@ public class POMCategories {
 	WaitUtilitys objWait;
 	
 	WebDriver driver;
+	
 
+	
 public POMCategories(WebDriver driver)
 	{
 		this.driver=driver;

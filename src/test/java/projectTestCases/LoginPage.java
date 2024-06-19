@@ -13,12 +13,14 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
+
 public class LoginPage {
 	POMLogin objPOMLogin;
 	static String url="https://qalegend.com/billing/public/login";
 	static String browser="chrome";
 
 	public static WebDriver driver;
+	
 
 	@Test(priority=1,enabled=true)
 	public void excel() throws Exception {

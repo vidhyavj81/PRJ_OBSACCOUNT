@@ -17,11 +17,12 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
+
 public class BrandPage {
-	POMLogin objPOMLogin;
+POMLogin objPOMLogin;
 POMUnit objPOMUnit;
 POMCategories objPOMCategories;
-	POMBrand objPOMBrand;
+POMBrand objPOMBrand;
 	
 	static String url="https://qalegend.com/billing/public/login";
 	static String browser="chrome";
@@ -67,7 +68,7 @@ POMCategories objPOMCategories;
 		objUnit.launchBrowser(url,browser);
 		driver=objUnit.driver;
 		objPOMLogin=new POMLogin(driver);
-	objPOMUnit=new POMUnit(driver);
+	    objPOMUnit=new POMUnit(driver);
 		objPOMCategories=new POMCategories(driver);
 		objPOMBrand=new POMBrand(driver);
   }
