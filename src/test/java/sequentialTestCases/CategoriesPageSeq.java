@@ -20,23 +20,16 @@ import org.testng.annotations.AfterTest;
 public class CategoriesPageSeq {
 	POMLogin objPOMLogin;
 	POMCategories objPOMCategories;
-	LoginPageSeq objlogin;
+	LoginPageSeq objloginSeq=new LoginPageSeq();
 	SoftAssert softassert=new SoftAssert();
 	
-	LoginPageSeq objloginSeq;//declare close the browser
-
-	public static WebDriver driver;	
-	
+	public static WebDriver driver;		
 	
 	@Test(priority=1,enabled=true,dataProvider="testdata")
 	public void categoriesAdd(String namecat,String codecat)throws InterruptedException{
-		objlogin=new LoginPageSeq();
-		//LoginPageSeq objloginSeq=new LoginPageSeq();
-		objPOMLogin=new POMLogin(objloginSeq.driver);
-		
+		objPOMLogin=new POMLogin(objloginSeq.driver);		
 		objPOMCategories=new POMCategories(objloginSeq.driver);
 		objPOMCategories.categoriesdetails();
-		//objPOMCategories.addcategoriesdetails("utensils","abc");
 		String objCatName=namecat;
 		String objCatCode=codecat;
 		objPOMCategories.addcategoriesdetails(namecat,codecat);	
@@ -50,7 +43,7 @@ public class CategoriesPageSeq {
 		
 		boolean value1=objPOMCategories.searchcategoriesDetails(PropertyFileRead.readConfigFile("searchdetailscategory"));
 		softassert.assertEquals(value1, true);
-	
+		softassert.assertAll();
 		}
 		@Test(priority=3,enabled=true)
 		public void deletecategoriesDetails() throws Exception {
@@ -58,6 +51,7 @@ public class CategoriesPageSeq {
 			String actualmessage=objPOMCategories.verifyDeleteMessageCat();
 			String expectedmessage="Category deleted successfully";
 			softassert.assertTrue(expectedmessage.contains(actualmessage));
+			softassert.assertAll();
 			
 		}
 	

@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="testNGUtility.RetryListner"/>
+  </listeners>
   <test thread-count="5" name="Test(failed)">
+    <groups>
+      <run>
+        <include name="failed"/>
+      </run>
+    </groups>
     <classes>
-      <class name="sequentialTestCases.CategoriesPageSeq">
+      <class name="projectTestCases.LoginPage">
         <methods>
-          <include name="afterTest"/>
-          <include name="categoriesAdd" invocation-numbers="0"/>
-          <include name="deletecategoriesDetails"/>
-          <include name="categoriesSearch"/>
+          <include name="beforeTest"/>
+          <include name="logInFailed"/>
         </methods>
-      </class> <!-- sequentialTestCases.CategoriesPageSeq -->
-      <class name="sequentialTestCases.UnitPageSeq">
-        <methods>
-          <include name="unitAdd" invocation-numbers="0"/>
-          <include name="deleteunit"/>
-          <include name="unitSearch"/>
-        </methods>
-      </class> <!-- sequentialTestCases.UnitPageSeq -->
+      </class> <!-- projectTestCases.LoginPage -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

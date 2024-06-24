@@ -1,19 +1,12 @@
 package webdriverUtility;
 
-import java.io.File;
-
-import java.util.Calendar;
-import java.util.Date;
-
-import org.codehaus.plexus.util.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class WebDriverActions {
+	
 	public WebDriver driver;
 	private String iframe;
 	static String project = System.getProperty("user.dir");
@@ -42,8 +35,7 @@ public class WebDriverActions {
 
 //Implementation for Click, Scrolldown, ScrollInto using JavaScript
 
-	public void javascriptClick(WebElement element) {
-
+	public void JavascriptClick(WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
 	}
@@ -63,29 +55,6 @@ public class WebDriverActions {
 		js.executeScript("window.scrollBy(0,pixel)");
 
 	}
-
-	public void screenshot() throws Exception {
-
-		Calendar cal = Calendar.getInstance();
-		Date time = cal.getTime();
-		String timestamp = time.toString().replace(":", "").replace(" ", "");
-
-		System.out.println(time);
-		System.out.println(timestamp);
-
-		// Convert web driver object to TakeScreenshot
-		TakesScreenshot scrShot = ((TakesScreenshot) driver);
-
-		// Call getScreenshotAs method to create image file
-		File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
-
-		// Move image file to new destination
-		File DestFile = new File(project + "\\src\\test\\resources\\screenshot\\" + timestamp + "test.png");
-
-		// Copy file at destination
-		FileUtils.copyFile(SrcFile, DestFile);
-	}
-	// TimeStamp
 
 // Common method implementation for webelement
 

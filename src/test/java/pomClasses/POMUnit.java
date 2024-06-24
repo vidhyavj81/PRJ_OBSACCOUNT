@@ -14,7 +14,6 @@ import waitUtility.WaitUtilitys;
 import webdriverUtility.WebDriverActions;
 
 public class POMUnit {
-//	public static String message="";
 	WebDriverActions objDriverActions;
 	public WebDriver driver;
 	WaitUtilitys objWait;

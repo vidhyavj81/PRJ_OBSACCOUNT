@@ -10,6 +10,7 @@ import webdriverUtility.WebDriverActions;
 public class POMLogin {
 	WebDriverActions objDriverActions;
 	WebDriver driver;
+	WaitUtilitys objWait;
 	public POMLogin(WebDriver driver)
 	
 	
@@ -28,6 +29,12 @@ public class POMLogin {
 		public WebElement EndTour;
 		@FindBy(xpath="//*[@id=\"tour_step5_menu\"]")
 		public WebElement Products;
+		
+		@FindBy(xpath="/html/body/div[2]/header/nav/div/ul/li[2]/a")
+		public WebElement profile;
+
+		@FindBy (xpath="//a[text()='Sign Out']")
+		public WebElement signOut;
 
 public void login(String username, String password) throws InterruptedException {
 
@@ -35,7 +42,26 @@ public void login(String username, String password) throws InterruptedException 
 	objDriverActions.sendkeys(Webpassword, password);
 	objDriverActions.click(WebLoginButton);
 	objDriverActions.click(EndTour);
+	try {
+		if(EndTour.isDisplayed())
+		{
+		objDriverActions.click(EndTour);
+		}
+		}
+		catch(Exception e)
+		{
+			System.out.println("handle exception");
+		}
 	objDriverActions.click(Products);
-	Thread.sleep(3000);
+}
+public void signout() throws InterruptedException
+{
+	objDriverActions.click(profile);
+	objWait=new WaitUtilitys(driver);
+	objWait.normalWait(3000);
+	objDriverActions.JavascriptClick(signOut);
+	objWait.normalWait(8000);
 }
 }
+
+
