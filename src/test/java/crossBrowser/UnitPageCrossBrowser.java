@@ -5,7 +5,7 @@ import commonUtility.PropertyFileRead;
 import excelUtility.ExcelRead;
 import pomClasses.POMLogin;
 import pomClasses.POMUnit;
-import webdriverUtility.Driver;
+import webdriverUtility.DriverManager;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -54,7 +54,7 @@ public class UnitPageCrossBrowser {
 	}
 	@Test(priority=3,enabled=true)
 	public void unitSearch() throws Exception {
-	boolean value=objPOMUnit.searchunitDetails(PropertyFileRead.readConfigFile("searchdetails"));
+	boolean value=objPOMUnit.isSearchunitDetails(PropertyFileRead.readConfigFile("searchdetails"));
 	
 	softassert.assertEquals(value, true);
 	}	
@@ -71,7 +71,7 @@ public class UnitPageCrossBrowser {
   @Parameters({"browser2"})
   public void beforeTest(String browser2)throws InterruptedException {
 		
-		Driver objUnit=new Driver();
+		DriverManager objUnit=new DriverManager();
 		objUnit.launchBrowser(url,browser2);
 		driver=objUnit.driver;
 		objPOMLogin=new POMLogin(driver);

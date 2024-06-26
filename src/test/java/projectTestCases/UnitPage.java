@@ -5,7 +5,7 @@ import commonUtility.PropertyFileRead;
 import excelUtility.ExcelRead;
 import pomClasses.POMLogin;
 import pomClasses.POMUnit;
-import webdriverUtility.Driver;
+import webdriverUtility.DriverManager;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.WebDriver;
@@ -22,8 +22,8 @@ public class UnitPage {
 	SoftAssert softassert=new SoftAssert();
 	
 	
-	static String url="https://qalegend.com/billing/public/login";
-	static String browser="chrome";
+	static String urllogin=PropertyFileRead.readConfigFile("urllogin");
+	static String browser=PropertyFileRead.readConfigFile("browser");
 
 	public static WebDriver driver;
 	@Test(priority=1,enabled=true)
@@ -42,7 +42,6 @@ public class UnitPage {
 	@Test(priority=2,enabled=true,dataProvider="testdata")
 	public void unitAdd(String name,String shortname) throws Exception {
 		objPOMUnit.unitDetails();
-		//objPOMUnit.addunitDetails("vidya_unit", "vidhya" );
 		String objName=name;
 		String objShortName=shortname;
 		objPOMUnit.addunitDetails(name,shortname);	
@@ -53,7 +52,7 @@ public class UnitPage {
 	}
 	@Test(priority=3,enabled=true)
 	public void unitSearch() throws Exception {
-	boolean value=objPOMUnit.searchunitDetails(PropertyFileRead.readConfigFile("searchdetails"));
+	boolean value=objPOMUnit.isSearchunitDetails(PropertyFileRead.readConfigFile("searchdetails"));
 	
 	softassert.assertEquals(value, true);
 	}	
@@ -69,8 +68,8 @@ public class UnitPage {
   @BeforeTest	
   public void beforeTest()throws InterruptedException {
 		
-		Driver objUnit=new Driver();
-		objUnit.launchBrowser(url,browser);
+		DriverManager objUnit=new DriverManager();
+		objUnit.launchBrowser(urllogin,browser);
 		driver=objUnit.driver;
 		objPOMLogin=new POMLogin(driver);
 		objPOMUnit=new POMUnit(driver);

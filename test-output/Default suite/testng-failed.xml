@@ -6,7 +6,6 @@
       <class name="projectTestCases.LoginPage">
         <methods>
           <include name="extendreportgenerate"/>
-          <include name="excel"/>
           <include name="closereport"/>
           <include name="beforeTest"/>
           <include name="afterTest"/>

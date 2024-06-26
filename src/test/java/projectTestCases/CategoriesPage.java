@@ -8,7 +8,7 @@ import excelUtility.ExcelRead;
 import pomClasses.POMCategories;
 import pomClasses.POMLogin;
 import pomClasses.POMUnit;
-import webdriverUtility.Driver;
+import webdriverUtility.DriverManager;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -23,8 +23,8 @@ public class CategoriesPage {
 	
 	POMCategories objPOMCategories;
 	SoftAssert softassert=new SoftAssert();
-	static String url="https://qalegend.com/billing/public/login";
-	static String browser="chrome";
+	static String urllogin=PropertyFileRead.readConfigFile("urllogin");
+	static String browser=PropertyFileRead.readConfigFile("browser");
 
 	public static WebDriver driver;
 	@Test(priority=1,enabled=true)
@@ -72,11 +72,10 @@ public class CategoriesPage {
   @BeforeTest
   public void beforeTest()throws InterruptedException {
 		
-		Driver objUnit=new Driver();
-		objUnit.launchBrowser(url,browser);
+		DriverManager objUnit=new DriverManager();
+		objUnit.launchBrowser(urllogin,browser);
 		driver=objUnit.driver;
 		objPOMLogin=new POMLogin(driver);
-		
 		objPOMCategories=new POMCategories(driver);
   }
   @AfterTest

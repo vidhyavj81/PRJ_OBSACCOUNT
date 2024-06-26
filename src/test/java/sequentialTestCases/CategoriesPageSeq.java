@@ -9,7 +9,7 @@ import pomClasses.POMBrand;
 import pomClasses.POMCategories;
 import pomClasses.POMLogin;
 import pomClasses.POMUnit;
-import webdriverUtility.Driver;
+import webdriverUtility.DriverManager;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;

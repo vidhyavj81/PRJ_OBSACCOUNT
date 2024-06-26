@@ -10,7 +10,7 @@ import commonUtility.PropertyFileRead;
 import excelUtility.ExcelRead;
 import extendReport.ExtendTestManager;
 import pomClasses.POMLogin;
-import webdriverUtility.Driver;
+import webdriverUtility.DriverManager;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -51,7 +51,7 @@ public class LoginPageCrossBrowser extends ExtendTestManager  {
   @BeforeTest()
   @Parameters({"browser1"})
   public void beforeTest(String browser1)throws InterruptedException {
-	    Driver objlogin=new Driver();
+	    DriverManager objlogin=new DriverManager();
 		objlogin.launchBrowser(url,browser1);
 		driver=objlogin.driver;
 		objPOMLogin=new POMLogin(driver);

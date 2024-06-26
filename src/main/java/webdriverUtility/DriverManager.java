@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Driver {
+public class DriverManager {
 	public WebDriver driver;
 
 	public void launchBrowser(String url, String browser) {

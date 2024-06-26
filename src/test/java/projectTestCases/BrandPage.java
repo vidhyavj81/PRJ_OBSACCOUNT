@@ -9,7 +9,7 @@ import pomClasses.POMBrand;
 import pomClasses.POMCategories;
 import pomClasses.POMLogin;
 import pomClasses.POMUnit;
-import webdriverUtility.Driver;
+import webdriverUtility.DriverManager;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -20,12 +20,10 @@ import org.testng.annotations.AfterTest;
 
 public class BrandPage {
 POMLogin objPOMLogin;
-POMUnit objPOMUnit;
-POMCategories objPOMCategories;
 POMBrand objPOMBrand;
 	
-	static String url="https://qalegend.com/billing/public/login";
-	static String browser="chrome";
+	static String urllogin=PropertyFileRead.readConfigFile("urllogin");
+	static String browser=PropertyFileRead.readConfigFile("browser");
 
 	public static WebDriver driver;
 	@Test(priority=1,enabled=true)
@@ -44,7 +42,6 @@ POMBrand objPOMBrand;
 	@Test(priority=2,enabled=true,dataProvider="testdata")
 	public void brandAdd(String namebrand,String descbrand)throws InterruptedException{
 		objPOMBrand.branddetails();
-		//objPOMBrand.addbranddetails("celto","kitchen");
 		String objNameBrand=namebrand;
 		String objDescBrand=descbrand;
 		objPOMBrand.addbranddetails(namebrand,descbrand);	
@@ -56,7 +53,7 @@ POMBrand objPOMBrand;
 		@Test(priority=3,enabled=true)
 		public void brandSearch()throws InterruptedException{
 		
-		boolean value2=objPOMBrand.searchBrandDetails(PropertyFileRead.readConfigFile("searchdetailsbrand"));
+		boolean value2=objPOMBrand.isSearchBrandDetails(PropertyFileRead.readConfigFile("searchdetailsbrand"));
 		Assert.assertEquals(value2, true);
 		}
 	
@@ -64,12 +61,10 @@ POMBrand objPOMBrand;
   @BeforeTest
   public void beforeTest()throws InterruptedException {
 		
-		Driver objUnit=new Driver();
-		objUnit.launchBrowser(url,browser);
+		DriverManager objUnit=new DriverManager();
+		objUnit.launchBrowser(urllogin,browser);
 		driver=objUnit.driver;
 		objPOMLogin=new POMLogin(driver);
-	    objPOMUnit=new POMUnit(driver);
-		objPOMCategories=new POMCategories(driver);
 		objPOMBrand=new POMBrand(driver);
   }
   @AfterTest

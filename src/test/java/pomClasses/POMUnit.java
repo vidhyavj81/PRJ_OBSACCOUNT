@@ -78,7 +78,7 @@ System.out.println("Successmessage="+message);
 return message;
 
 }
-public boolean searchunitDetails(String message) throws InterruptedException {	
+public boolean isSearchunitDetails(String message) throws InterruptedException {	
 	objDriverActions.click(SearchBox);
 	objDriverActions.sendkeys(SearchBox,message);
 	Thread.sleep(3000);

@@ -17,7 +17,7 @@ public class WaitUtilitys {
 		this.driver = driver;
 	}
 
-	public void implecitWait() {
+	public void driverImplicitWait() {
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 	}

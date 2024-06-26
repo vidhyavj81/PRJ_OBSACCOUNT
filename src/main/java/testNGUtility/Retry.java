@@ -5,18 +5,18 @@ import java.io.IOException;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
-import webdriverUtility.Driver;
+import webdriverUtility.DriverManager;
 import webdriverUtility.WebDriverActions;
 
 public class Retry implements IRetryAnalyzer {
 	WebDriverActions objActions;
-	Driver objdriver;
+	DriverManager objdriver;
 
 	private int retryCount = 0;
 	private int maxRetryCount = 2;
 
 	public boolean retry(ITestResult result) {
-		objdriver = new Driver();
+		objdriver = new DriverManager();
 		if (retryCount < maxRetryCount) {
 			System.out.println("Retrying test " + result.getName() + " with status "
 					+ getResultStatusName(result.getStatus()) + " for the " + (retryCount + 1) + " time(s).");

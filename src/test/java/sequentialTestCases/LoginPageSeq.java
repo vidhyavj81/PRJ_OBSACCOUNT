@@ -6,7 +6,7 @@ import org.testng.asserts.SoftAssert;
 import commonUtility.PropertyFileRead;
 import excelUtility.ExcelRead;
 import pomClasses.POMLogin;
-import webdriverUtility.Driver;
+import webdriverUtility.DriverManager;
 
 import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.WebDriver;
@@ -15,9 +15,8 @@ import org.testng.annotations.AfterTest;
 
 public class LoginPageSeq {
 	POMLogin objPOMLogin;
-	static String url="https://qalegend.com/billing/public/login";
-	static String browser="chrome";
-
+	static String urllogin=PropertyFileRead.readConfigFile("urllogin");
+	static String browser=PropertyFileRead.readConfigFile("browser");
 	public static WebDriver driver;
 
 	@Test(priority=1,enabled=true)
@@ -36,8 +35,8 @@ public class LoginPageSeq {
   @BeforeTest
   public void beforeTest()throws InterruptedException {
 		
-		Driver objlogin=new Driver();
-		objlogin.launchBrowser(url,browser);
+		DriverManager objlogin=new DriverManager();
+		objlogin.launchBrowser(urllogin,browser);
 		driver=objlogin.driver;
 		objPOMLogin=new POMLogin(driver);
   }

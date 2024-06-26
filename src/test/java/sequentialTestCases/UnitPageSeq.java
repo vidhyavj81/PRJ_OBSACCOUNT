@@ -7,7 +7,7 @@ import pomClasses.POMBrand;
 import pomClasses.POMCategories;
 import pomClasses.POMLogin;
 import pomClasses.POMUnit;
-import webdriverUtility.Driver;
+import webdriverUtility.DriverManager;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.openqa.selenium.WebDriver;
@@ -19,13 +19,13 @@ public class UnitPageSeq {
 	
 	POMLogin objPOMLogin;
 	POMUnit objPOMUnit;
+	LoginPageSeq objlogin=new LoginPageSeq();
 	SoftAssert softassert=new SoftAssert();
 	public static WebDriver driver;
 	
 	
 	@Test(priority=1,enabled=true,dataProvider="testdata")
-	public void unitAdd(String name,String shortname) throws Exception {
-		LoginPageSeq objlogin=new LoginPageSeq();
+	public void unitAdd(String name,String shortname) throws Exception {	
 		objPOMLogin=new POMLogin(objlogin.driver);
 		objPOMUnit=new POMUnit(objlogin.driver);		
 		objPOMUnit.unitDetails();
@@ -39,7 +39,7 @@ public class UnitPageSeq {
 	}
 	@Test(priority=2,enabled=true)
 	public void unitSearch() throws Exception {
-	boolean value=objPOMUnit.searchunitDetails(PropertyFileRead.readConfigFile("searchdetails"));
+	boolean value=objPOMUnit.isSearchunitDetails(PropertyFileRead.readConfigFile("searchdetails"));
 	
 	softassert.assertEquals(value, true);
 	}	

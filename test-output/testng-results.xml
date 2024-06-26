@@ -1,51 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-06-23T01:13:30 IST" name="Suite" finished-at="2024-06-23T01:14:14 IST" duration-ms="44344">
+  <suite started-at="2024-06-26T20:54:00 IST" name="Suite" finished-at="2024-06-26T20:55:00 IST" duration-ms="60106">
     <groups>
     </groups>
-    <test started-at="2024-06-23T01:13:30 IST" name="Test1" finished-at="2024-06-23T01:13:44 IST" duration-ms="13514">
-      <class name="crossBrowser.LoginPageCrossBrowser">
-        <test-method is-config="true" signature="beforeTest(java.lang.String)[pri:0, instance:crossBrowser.LoginPageCrossBrowser@7d20d0b]" started-at="2024-06-23T01:13:30 IST" name="beforeTest" finished-at="2024-06-23T01:13:39 IST" duration-ms="9205" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2024-06-26T20:54:00 IST" name="Test" finished-at="2024-06-26T20:55:00 IST" duration-ms="60106">
+      <class name="sequentialTestCases.LoginPageSeq">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:sequentialTestCases.LoginPageSeq@fa4c865]" started-at="2024-06-26T20:54:00 IST" name="beforeTest" finished-at="2024-06-26T20:54:06 IST" duration-ms="6751" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="excel()[pri:1, instance:crossBrowser.LoginPageCrossBrowser@7d20d0b]" started-at="2024-06-23T01:13:39 IST" name="excel" finished-at="2024-06-23T01:13:43 IST" duration-ms="4129" status="PASS">
+        <test-method signature="excel()[pri:1, instance:sequentialTestCases.LoginPageSeq@fa4c865]" started-at="2024-06-26T20:54:07 IST" name="excel" finished-at="2024-06-26T20:54:11 IST" duration-ms="4804" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- excel -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:crossBrowser.LoginPageCrossBrowser@7d20d0b]" started-at="2024-06-23T01:13:43 IST" name="afterTest" finished-at="2024-06-23T01:13:44 IST" duration-ms="121" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-      </class> <!-- crossBrowser.LoginPageCrossBrowser -->
-    </test> <!-- Test1 -->
-    <test started-at="2024-06-23T01:13:44 IST" name="Test2" finished-at="2024-06-23T01:14:14 IST" duration-ms="30774">
-      <class name="crossBrowser.UnitPageCrossBrowser">
-        <test-method is-config="true" signature="beforeTest(java.lang.String)[pri:0, instance:crossBrowser.UnitPageCrossBrowser@6db9f5a4]" started-at="2024-06-23T01:13:44 IST" name="beforeTest" finished-at="2024-06-23T01:13:49 IST" duration-ms="5342" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[edge]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method signature="excel()[pri:1, instance:crossBrowser.UnitPageCrossBrowser@6db9f5a4]" started-at="2024-06-23T01:13:49 IST" name="excel" finished-at="2024-06-23T01:13:52 IST" duration-ms="3025" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- excel -->
-        <test-method signature="unitAdd(java.lang.String,java.lang.String)[pri:2, instance:crossBrowser.UnitPageCrossBrowser@6db9f5a4]" started-at="2024-06-23T01:13:52 IST" name="unitAdd" data-provider="testdata" finished-at="2024-06-23T01:14:04 IST" duration-ms="11922" status="PASS">
+      </class> <!-- sequentialTestCases.LoginPageSeq -->
+      <class name="sequentialTestCases.UnitPageSeq">
+        <test-method signature="unitAdd(java.lang.String,java.lang.String)[pri:1, instance:sequentialTestCases.UnitPageSeq@23348b5d]" started-at="2024-06-26T20:54:11 IST" name="unitAdd" data-provider="testdata" finished-at="2024-06-26T20:54:23 IST" duration-ms="11798" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -61,29 +33,45 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- unitAdd -->
-        <test-method signature="unitSearch()[pri:3, instance:crossBrowser.UnitPageCrossBrowser@6db9f5a4]" started-at="2024-06-23T01:14:04 IST" name="unitSearch" finished-at="2024-06-23T01:14:10 IST" duration-ms="6365" status="PASS">
+        <test-method signature="unitSearch()[pri:2, instance:sequentialTestCases.UnitPageSeq@23348b5d]" started-at="2024-06-26T20:54:23 IST" name="unitSearch" finished-at="2024-06-26T20:54:30 IST" duration-ms="6384" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- unitSearch -->
-        <test-method signature="deleteunit()[pri:4, instance:crossBrowser.UnitPageCrossBrowser@6db9f5a4]" started-at="2024-06-23T01:14:10 IST" name="deleteunit" finished-at="2024-06-23T01:14:14 IST" duration-ms="3910" status="PASS">
+        <test-method signature="deleteunit()[pri:3, instance:sequentialTestCases.UnitPageSeq@23348b5d]" started-at="2024-06-26T20:54:30 IST" name="deleteunit" finished-at="2024-06-26T20:54:33 IST" duration-ms="3779" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteunit -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:crossBrowser.UnitPageCrossBrowser@6db9f5a4]" started-at="2024-06-23T01:14:14 IST" name="afterTest" finished-at="2024-06-23T01:14:14 IST" duration-ms="187" status="PASS">
+      </class> <!-- sequentialTestCases.UnitPageSeq -->
+      <class name="sequentialTestCases.CategoriesPageSeq">
+        <test-method signature="categoriesAdd(java.lang.String,java.lang.String)[pri:1, instance:sequentialTestCases.CategoriesPageSeq@70325e14]" started-at="2024-06-26T20:54:33 IST" name="categoriesAdd" data-provider="testdata" finished-at="2024-06-26T20:54:50 IST" duration-ms="16214" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[utensils]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[abc]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- categoriesAdd -->
+        <test-method signature="categoriesSearch()[pri:2, instance:sequentialTestCases.CategoriesPageSeq@70325e14]" started-at="2024-06-26T20:54:50 IST" name="categoriesSearch" finished-at="2024-06-26T20:54:56 IST" duration-ms="6342" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- categoriesSearch -->
+        <test-method signature="deletecategoriesDetails()[pri:3, instance:sequentialTestCases.CategoriesPageSeq@70325e14]" started-at="2024-06-26T20:54:56 IST" name="deletecategoriesDetails" finished-at="2024-06-26T20:55:00 IST" duration-ms="3722" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deletecategoriesDetails -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:sequentialTestCases.CategoriesPageSeq@70325e14]" started-at="2024-06-26T20:55:00 IST" name="afterTest" finished-at="2024-06-26T20:55:00 IST" duration-ms="90" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- crossBrowser.UnitPageCrossBrowser -->
-      <class name="crossBrowser.LoginPageCrossBrowser">
-        <test-method is-config="true" signature="extendreportgenerate()[pri:0, instance:crossBrowser.LoginPageCrossBrowser@7d20d0b]" started-at="2024-06-23T01:13:30 IST" name="extendreportgenerate" finished-at="2024-06-23T01:13:30 IST" duration-ms="375" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- extendreportgenerate -->
-        <test-method is-config="true" signature="closereport()[pri:0, instance:crossBrowser.LoginPageCrossBrowser@7d20d0b]" started-at="2024-06-23T01:14:14 IST" name="closereport" finished-at="2024-06-23T01:14:15 IST" duration-ms="536" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closereport -->
-      </class> <!-- crossBrowser.LoginPageCrossBrowser -->
-    </test> <!-- Test2 -->
+      </class> <!-- sequentialTestCases.CategoriesPageSeq -->
+    </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

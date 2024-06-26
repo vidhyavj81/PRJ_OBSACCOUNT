@@ -8,7 +8,7 @@ import excelUtility.ExcelRead;
 import pomClasses.POMLogin;
 import pomClasses.POMProduct;
 
-import webdriverUtility.Driver;
+import webdriverUtility.DriverManager;
 
 import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.WebDriver;
@@ -47,7 +47,7 @@ objPOMProduct.addProductDetails("anoki", "Nestle","food","100","6","9");
 	  @BeforeTest	
 	  public void beforeTest()throws InterruptedException {
 			
-			Driver objUnit=new Driver();
+			DriverManager objUnit=new DriverManager();
 			objUnit.launchBrowser(url,browser);
 			driver=objUnit.driver;
 			objPOMLogin=new POMLogin(driver);

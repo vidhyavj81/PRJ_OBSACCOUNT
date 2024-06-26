@@ -54,7 +54,7 @@ public class POMBrand {
 		brandmessage = objDriverActions.getText(Brandmessage);
 	}
 
-	public boolean searchBrandDetails(String messagebrand) throws InterruptedException {
+	public boolean isSearchBrandDetails(String messagebrand) throws InterruptedException {
 		objDriverActions.click(Brandsearchbox);
 		objDriverActions.sendkeys(Brandsearchbox, messagebrand);
 		Thread.sleep(3000);

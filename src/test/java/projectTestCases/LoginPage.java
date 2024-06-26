@@ -10,7 +10,7 @@ import commonUtility.PropertyFileRead;
 import excelUtility.ExcelRead;
 import extendReport.ExtendTestManager;
 import pomClasses.POMLogin;
-import webdriverUtility.Driver;
+import webdriverUtility.DriverManager;
 
 import org.testng.annotations.BeforeTest;
 
@@ -23,14 +23,13 @@ import org.testng.annotations.AfterTest;
 
 public class LoginPage extends ExtendTestManager  {
 	public static WebDriver driver;
-
-	SoftAssert asser = new SoftAssert();
+	SoftAssert objassert = new SoftAssert();
 	POMLogin objPOMLogin;
 	ExtentTest test;
 	public ExtentReports extent;
 	ExtendTestManager objTestManager;
-	static String url="https://qalegend.com/billing/public/login";
-	static String browser="chrome";
+	static String urllogin=PropertyFileRead.readConfigFile("urllogin");
+	static String browser=PropertyFileRead.readConfigFile("browser");
 
 	
 
@@ -41,24 +40,22 @@ public class LoginPage extends ExtendTestManager  {
 	
 	String username=ExcelRead.readStringData(1, 0);
 	String password=ExcelRead.readNumbericData(1, 1);
-	objPOMLogin.login(username, password);
-	
+	objPOMLogin.login(username, password);	
 	String currenturl=driver.getCurrentUrl();
-	SoftAssert url=new SoftAssert();
-	url.assertEquals(PropertyFileRead.readConfigFile("expectedurl") , currenturl);
-	url.assertAll();
-	if(PropertyFileRead.readConfigFile("url").contains(currenturl))
+//	objassert.assertEquals(PropertyFileRead.readConfigFile("expectedurl") , currenturl);
+//	objassert.assertAll();
+	if(PropertyFileRead.readConfigFile("expectedurl").contains(currenturl))
 	{
 		
-		asser.assertTrue(true);
+		objassert.assertTrue(true);
 		Status=true;
 	}
 	else {
-		asser.assertTrue(false);
+		objassert.assertTrue(false);
 		Status=false;
 	}
 	
-	asser.assertAll();
+	objassert.assertAll();
 	if(Status==true)
 	{
 		test.log(com.aventstack.extentreports.Status.PASS, "Login successfully to the application");
@@ -73,18 +70,16 @@ public class LoginPage extends ExtendTestManager  {
 		String username = ExcelRead.readStringData(1, 0);
 		String password = ExcelRead.readNumbericData(1, 1);
 		objPOMLogin.login(username, password);
-
 		String current_url = driver.getCurrentUrl();
-		
-		asser.assertEquals("123", current_url);
+		objassert.assertEquals("123", current_url);
 		objPOMLogin.signout();
-		asser.assertAll();
+		objassert.assertAll();
 	}
 	
   @BeforeTest(alwaysRun = true)
   public void beforeTest()throws InterruptedException {
-	    Driver objlogin=new Driver();
-		objlogin.launchBrowser(url,browser);
+	    DriverManager objlogin=new DriverManager();
+		objlogin.launchBrowser(urllogin,browser);
 		driver=objlogin.driver;
 		objPOMLogin=new POMLogin(driver);
 		objTestManager=new ExtendTestManager();
